@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Rylanristia',
-            'email' => 'rylanristia@gmail.com',
-            'password' => Hash::make('valerieagatha_'),
+            'name' => 'umaruta',
+            'email' => 'umaruta@gmail.com',
+            'password' => Hash::make('12345678'),
             'token' => md5(date('Y-m-d H:i:s', time()) . 'xry&lAn' . date('i:s', time()))
         ]);
     }
