@@ -9,9 +9,11 @@ class Attendance extends Model
 {
     use HasFactory;
 
-    protected $table    = 'attendance';
+    protected $table        = 'attendance';
 
-    protected $fillable = [
+    public $timestamps      = false;
+
+    protected $fillable     = [
         'nip',
         'checked_in'
     ];

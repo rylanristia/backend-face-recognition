@@ -7,6 +7,7 @@ use App\Http\Helper\Security;
 use App\Models\Employee;
 use App\Http\Requests\EmployeeRequest;
 use App\Http\Requests\AddemployeeRequest;
+use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -33,7 +34,7 @@ class EmployeeController extends Controller
 
     public function createEmployee(AddemployeeRequest $request)
     {
-        $data = $request->only(['x', 'xnip', 'xname', 'xphone_number', 'xaddress', 'xpurity']);
+        $data = $request->only(['x', 'xnip', 'xname', 'xemail', 'xphone_number', 'xaddress']);
 
         if (Security::sessionCheck($data['x']) == false) {
             return response()->json([
@@ -45,9 +46,9 @@ class EmployeeController extends Controller
         $dataset = [
             'nip' => $data['xnip'],
             'name' => $data['xname'],
+            'email' => $data['xemail'],
             'phone_number' => $data['xphone_number'],
             'address' => $data['xphone_number'],
-            'purity' => $data['xpurity']
         ];
 
         Employee::create($dataset);
@@ -56,5 +57,18 @@ class EmployeeController extends Controller
             'success' => true,
             'message' => 'Successfully add new employee'
         ]);
+    }
+
+    public function checkEmployee(Request $request)
+    {
+        $data = $request->only(['xnip']);
+
+        $item = Employee::where('nip', $data['xnip'])->first();
+
+        if (empty($item)) {
+            return response()->json(true);
+        }
+
+        return response()->json(false);
     }
 }
