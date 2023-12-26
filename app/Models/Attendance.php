@@ -15,6 +15,7 @@ class Attendance extends Model
 
     protected $fillable     = [
         'nip',
-        'checked_in'
+        'checked_in',
+        'checked_out'
     ];
 }

@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return response()->json([
+        'success' => false,
+        'message' => "faults: check the configuration again or you will get blocked"
+    ]);
+});
+
 Route::get('/api/auth/login', function () {
     return response()->json([
         'success' => false,
-        'message' => "KEPALA BAPAK KAU PECAH KU TEPAK PAKE PISTON SUPRA BATOK GETER, PECAH PALANYA"
+        'message' => "faults: check the configuration again or you will get blocked"
     ]);
 });

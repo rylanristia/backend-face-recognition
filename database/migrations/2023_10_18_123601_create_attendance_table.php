@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nip');
             $table->dateTime('checked_in');
+            $table->dateTime('checked_out')->nullable();
         });
     }
 
