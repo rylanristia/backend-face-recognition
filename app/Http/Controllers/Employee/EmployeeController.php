@@ -48,7 +48,7 @@ class EmployeeController extends Controller
             'name' => $data['xname'],
             'email' => $data['xemail'],
             'phone_number' => $data['xphone_number'],
-            'address' => $data['xphone_number'],
+            'address' => $data['xaddress'],
         ];
 
         Employee::create($dataset);
